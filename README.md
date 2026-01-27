@@ -103,7 +103,7 @@ Copyright © 2024 Internlift India Technology. All rights reserved.
 ## 📞 Contact
 
 - **Email**: support@internlift.com
-- **Phone**: +91 7004284412
+- **Phone**: +91 9430814605
 - **Website**: www.internlift.com
 - **Address**: 64/4, 1st Floor, Gopal Reddy Building, G S Palya Road, Konapana Agrahara, Electronics City, Bengaluru, Karnataka – 560100
 

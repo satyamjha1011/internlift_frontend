@@ -14,8 +14,8 @@ const ContactUs = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+91 7004284412',
-      link: 'tel:+917004284412',
+      content: '+91 9430814605',
+      link: 'tel:+919430814605',
     },
     {
       icon: MapPin,
