@@ -100,6 +100,29 @@ VITE_API_URL=https://api.internlift.com
 
 Copyright © 2024 Internlift India Technology. All rights reserved.
 
+## 🚀 Deployment
+
+This project is configured for CI/CD with GitHub Actions and can be deployed to:
+
+- **Vercel** (Recommended) - See `QUICK_START_DEPLOYMENT.md`
+- **GitHub Pages** - See `DEPLOYMENT_GUIDE.md`
+- **Netlify** - See `DEPLOYMENT_GUIDE.md`
+
+### Quick Deploy
+
+1. Push code to GitHub
+2. Connect to Vercel/Netlify/GitHub Pages
+3. Add your custom domain
+4. Update DNS records
+5. Done! 🎉
+
+See `QUICK_START_DEPLOYMENT.md` for detailed step-by-step instructions.
+
+### CI/CD Workflows
+
+- **CI**: Runs on every push/PR - builds and tests
+- **Deploy**: Automatically deploys on push to `main` branch
+
 ## 📞 Contact
 
 - **Email**: support@internlift.com
