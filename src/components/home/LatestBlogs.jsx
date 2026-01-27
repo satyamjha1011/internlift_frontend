@@ -31,14 +31,15 @@ const LatestBlogs = () => {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 bg-gradient-to-b from-black to-gray-900">
+      {/* Responsive container with max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-between mb-12"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 gap-4"
         >
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -61,7 +62,7 @@ const LatestBlogs = () => {
           </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {blogs.map((blog, index) => (
             <motion.div
               key={blog.slug}

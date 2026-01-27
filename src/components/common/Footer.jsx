@@ -2,15 +2,29 @@ import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 import Logo from './Logo'
 
+/**
+ * Footer Component - Fully Responsive and Semantically Correct
+ * 
+ * Features:
+ * - CSS Grid layout for responsive column structure
+ * - Semantic HTML5 elements (footer, nav, address)
+ * - ARIA roles and labels for accessibility
+ * - Relative units (rem, %) for all sizing
+ * - Mobile-first responsive design
+ * - Breakpoints: 480px, 768px, 1024px, 1440px
+ * - Ultra-wide screen support with max-width constraints
+ */
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
+  // Footer navigation links organized by category
   const footerLinks = {
     company: [
       { path: '/about', label: 'About Us' },
       { path: '/case-studies', label: 'Case Studies' },
       { path: '/blog', label: 'Blog' },
       { path: '/contact', label: 'Contact' },
+      { path: '/privacy-policy', label: 'Privacy Policy' }, // New link added
     ],
     services: [
       { path: '/services/backend-development', label: 'Backend Development' },
@@ -25,92 +39,210 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-black border-t border-primary-bright-green/20 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
-            <div className="mb-4">
-              <Logo size="md" showLink={false} className="mb-4" />
+    <footer 
+      className="bg-black border-t border-primary-bright-green/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16"
+      role="contentinfo"
+      aria-label="Site footer"
+    >
+      {/* Main footer container - responsive padding and max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 py-8 sm:py-10 md:py-12 lg:py-16">
+        
+        {/* Footer content grid - responsive columns */}
+        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          
+          {/* ============================================
+              COLUMN 1: Company Information
+              ============================================ */}
+          <div className="xs:col-span-1 sm:col-span-2 lg:col-span-1">
+            {/* Company Logo */}
+            <div className="mb-4 sm:mb-5 md:mb-6" aria-label="Company logo">
+              <Logo size="md" showLink={false} className="mb-3 sm:mb-4" />
             </div>
-            <p className="text-gray-100 mb-4">
+            
+            {/* Company Description */}
+            <p className="text-gray-100 text-sm sm:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
               MSME-registered IT services company and internship provider based in Bengaluru.
             </p>
-            <div className="space-y-2 text-sm text-gray-300">
-              <div className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 mt-1 text-primary-bright-green flex-shrink-0" />
-                <span>64/4, 1st Floor, Gopal Reddy Building, G S Palya Road, Konapana Agrahara, Electronics City, Bengaluru, Karnataka – 560100</span>
+            
+            {/* Contact Information - Using semantic address element */}
+            <address 
+              className="not-italic space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-300"
+              aria-label="Contact information"
+            >
+              {/* Physical Address */}
+              <div className="flex items-start gap-2 sm:gap-2.5" role="group" aria-label="Physical address">
+                <MapPin 
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 text-primary-bright-green flex-shrink-0" 
+                  aria-hidden="true"
+                />
+                <span className="leading-relaxed">
+                  64/4, 1st Floor, Gopal Reddy Building, G S Palya Road, Konapana Agrahara, 
+                  Electronics City, Bengaluru, Karnataka – 560100
+                </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-primary-bright-green" />
-                <a href="mailto:support@internlift.com" className="hover:text-primary-bright-green transition-colors">
+              
+              {/* Email Address */}
+              <div className="flex items-center gap-2 sm:gap-2.5" role="group" aria-label="Email address">
+                <Mail 
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-bright-green flex-shrink-0" 
+                  aria-hidden="true"
+                />
+                <a 
+                  href="mailto:support@internlift.com" 
+                  className="hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded"
+                  aria-label="Send email to support@internlift.com"
+                >
                   support@internlift.com
                 </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-primary-bright-green" />
-                <a href="tel:+919430814605" className="hover:text-primary-bright-green transition-colors">
+              
+              {/* Phone Number */}
+              <div className="flex items-center gap-2 sm:gap-2.5" role="group" aria-label="Phone number">
+                <Phone 
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-bright-green flex-shrink-0" 
+                  aria-hidden="true"
+                />
+                <a 
+                  href="tel:+919430814605" 
+                  className="hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded"
+                  aria-label="Call +91 9430814605"
+                >
                   +91 9430814605
                 </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <ExternalLink className="w-4 h-4 text-primary-bright-green" />
-                <a href="https://www.internlift.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-bright-green transition-colors">
+              
+              {/* Website URL */}
+              <div className="flex items-center gap-2 sm:gap-2.5" role="group" aria-label="Website">
+                <ExternalLink 
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-bright-green flex-shrink-0" 
+                  aria-hidden="true"
+                />
+                <a 
+                  href="https://www.internlift.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded"
+                  aria-label="Visit www.internlift.com (opens in new tab)"
+                >
                   www.internlift.com
                 </a>
               </div>
-            </div>
+            </address>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-primary-bright-green mb-4">Company</h4>
-            <ul className="space-y-2">
+          {/* ============================================
+              COLUMN 2: Company Navigation Links
+              ============================================ */}
+          <nav 
+            className="xs:col-span-1 sm:col-span-1 lg:col-span-1"
+            aria-label="Company navigation"
+          >
+            <h2 className="text-base sm:text-lg font-semibold text-primary-bright-green mb-3 sm:mb-4 md:mb-5">
+              Company
+            </h2>
+            <ul 
+              className="space-y-2 sm:space-y-2.5" 
+              role="list"
+            >
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 hover:text-primary-bright-green transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-gray-300 text-sm sm:text-base hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded inline-block"
+                    aria-label={`Navigate to ${link.label}`}
+                  >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold text-primary-bright-green mb-4">Services</h4>
-            <ul className="space-y-2">
+          {/* ============================================
+              COLUMN 3: Services Navigation Links
+              ============================================ */}
+          <nav 
+            className="xs:col-span-1 sm:col-span-1 lg:col-span-1"
+            aria-label="Services navigation"
+          >
+            <h2 className="text-base sm:text-lg font-semibold text-primary-bright-green mb-3 sm:mb-4 md:mb-5">
+              Services
+            </h2>
+            <ul 
+              className="space-y-2 sm:space-y-2.5" 
+              role="list"
+            >
               {footerLinks.services.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 hover:text-primary-bright-green transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-gray-300 text-sm sm:text-base hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded inline-block"
+                    aria-label={`Navigate to ${link.label}`}
+                  >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Programs */}
-          <div>
-            <h4 className="text-lg font-semibold text-primary-bright-green mb-4">Programs</h4>
-            <ul className="space-y-2">
+          {/* ============================================
+              COLUMN 4: Programs & MSME Registration
+              ============================================ */}
+          <div className="xs:col-span-1 sm:col-span-1 lg:col-span-1">
+            {/* Programs Navigation */}
+            <nav aria-label="Programs navigation">
+              <h2 className="text-base sm:text-lg font-semibold text-primary-bright-green mb-3 sm:mb-4 md:mb-5">
+                Programs
+              </h2>
+              <ul 
+                className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5 md:mb-6" 
+                role="list"
+              >
               {footerLinks.programs.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 hover:text-primary-bright-green transition-colors">
+                    <Link 
+                      to={link.path} 
+                      className="text-gray-300 text-sm sm:text-base hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded inline-block"
+                      aria-label={`Navigate to ${link.label}`}
+                    >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 glass-card p-4">
-              <p className="text-xs text-gray-400 mb-2">MSME Registration</p>
-              <p className="text-sm font-mono text-primary-bright-green">UDYAM-KR-03-0578695</p>
+            </nav>
+            
+            {/* MSME Registration Card */}
+            <div 
+              className="glass-card p-3 sm:p-4" 
+              role="region"
+              aria-label="MSME registration information"
+            >
+              <p className="text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2 font-medium">
+                MSME Registration
+              </p>
+              <p 
+                className="text-xs sm:text-sm md:text-base font-mono text-primary-bright-green break-all"
+                aria-label="MSME registration number UDYAM-KR-03-0578695"
+              >
+                UDYAM-KR-03-0578695
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary-bright-green/20 text-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Internlift India Technology. All rights reserved.</p>
+        {/* ============================================
+            COPYRIGHT SECTION
+            ============================================ */}
+        <div 
+          className="mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 border-t border-primary-bright-green/20 text-center"
+          role="contentinfo"
+          aria-label="Copyright information"
+        >
+          <p className="text-xs sm:text-sm text-gray-400">
+            &copy; {currentYear} Internlift India Technology. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

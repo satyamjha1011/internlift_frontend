@@ -11,8 +11,9 @@ const MSMEBadge = () => {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16">
+      {/* Responsive container with constrained max-width */}
+      <div className="w-full max-w-[56rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,16 +22,26 @@ const MSMEBadge = () => {
         >
           <Card glow className="relative overflow-hidden">
             {/* Background Pattern */}
+            {/* Responsive background pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-bright-green rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-neon-green rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 
+                              w-[12rem] sm:w-[14rem] md:w-[16rem] 
+                              h-[12rem] sm:h-[14rem] md:h-[16rem] 
+                              bg-primary-bright-green rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 
+                              w-[12rem] sm:w-[14rem] md:w-[16rem] 
+                              h-[12rem] sm:h-[14rem] md:h-[16rem] 
+                              bg-primary-neon-green rounded-full blur-3xl" />
             </div>
 
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                 <div className="flex-shrink-0">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-bright-green to-primary-neon-green flex items-center justify-center glow-effect-strong">
-                    <Award className="w-12 h-12 text-black" />
+                  {/* Responsive icon sizing */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 
+                                  rounded-full bg-gradient-to-br from-primary-bright-green to-primary-neon-green 
+                                  flex items-center justify-center glow-effect-strong">
+                    <Award className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black" />
                   </div>
                 </div>
 

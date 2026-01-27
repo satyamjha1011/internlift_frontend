@@ -5,6 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // Custom breakpoints: 480px (mobile), 768px (tablet), 1024px (desktop), 1440px (large)
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1440px',
+      '3xl': '1920px', // Ultra-wide support
+    },
     extend: {
       colors: {
         primary: {
@@ -22,6 +32,22 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      // Container settings for responsive max-widths
+      maxWidth: {
+        'container': '100%',
+        'container-sm': '640px',
+        'container-md': '768px',
+        'container-lg': '1024px',
+        'container-xl': '1280px',
+        'container-2xl': '1440px',
+        'container-3xl': '1600px', // Max width for ultra-wide screens
+      },
+      spacing: {
+        // Using rem units for better scalability
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

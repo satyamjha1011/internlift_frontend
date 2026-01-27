@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Logo = ({ className = '', showLink = true, size = 'md', useImage = false }) => {
+const Logo = ({ className = '', showLink = true, size = 'md', useImage = true }) => {
   const sizes = {
     sm: { globe: 32, text: 'text-lg', tagline: 'text-xs', spacing: 'space-x-2', img: 'h-8' },
     md: { globe: 48, text: 'text-2xl', tagline: 'text-sm', spacing: 'space-x-3', img: 'h-12' },
@@ -10,8 +10,8 @@ const Logo = ({ className = '', showLink = true, size = 'md', useImage = false }
 
   const currentSize = sizes[size] || sizes.md
 
-  // Try to use image file if available, otherwise use SVG
-  const logoImagePath = '/images/logo.png'
+  // Use the actual logo image file - logo appears before text
+  const logoImagePath = '/logo.png'
   
   const GlobeIcon = () => {
     if (useImage) {
@@ -127,20 +127,35 @@ const Logo = ({ className = '', showLink = true, size = 'md', useImage = false }
   }
 
   const LogoContent = () => {
-    // If using image and it exists, show just the image
+    // Logo image appears BEFORE text - as requested
     if (useImage) {
       return (
         <div className={`flex items-center ${currentSize.spacing} ${className}`}>
+          {/* Logo Image - appears before text */}
           <img 
             src={logoImagePath} 
-            alt="Internlift India Technology" 
-            className={`${currentSize.img} w-auto object-contain`}
+            alt="Internlift India Technology Logo" 
+            className={`${currentSize.img} w-auto object-contain flex-shrink-0`}
+            onError={(e) => {
+              // Fallback to SVG if image doesn't load
+              console.warn('Logo image not found, falling back to SVG')
+              e.target.style.display = 'none'
+            }}
           />
+          {/* Text content */}
+          <div className="flex flex-col">
+            <span className={`${currentSize.text} font-bold text-white uppercase tracking-tight leading-tight`}>
+              INTERNLIFT
+            </span>
+            <span className={`${currentSize.tagline} font-normal text-white uppercase tracking-[0.15em] leading-tight`}>
+              INDIA TECHNOLOGY
+            </span>
+          </div>
         </div>
       )
     }
     
-    // Otherwise show SVG + text
+    // Fallback: SVG + text (if useImage is false)
     return (
       <div className={`flex items-center ${currentSize.spacing} ${className}`}>
         <GlobeIcon />

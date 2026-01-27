@@ -19,11 +19,12 @@ const Button = ({
     ghost: 'bg-transparent text-primary-bright-green hover:bg-primary-bright-green/10',
   }
   
+  // Responsive button sizes using relative units
   const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
-    xl: 'px-10 py-5 text-xl',
+    sm: 'px-3 py-1.5 xs:px-4 xs:py-2 text-xs xs:text-sm',
+    md: 'px-4 py-2 xs:px-5 xs:py-2.5 sm:px-6 sm:py-3 text-sm xs:text-base',
+    lg: 'px-6 py-3 xs:px-7 xs:py-3.5 sm:px-8 sm:py-4 text-base xs:text-lg sm:text-lg',
+    xl: 'px-8 py-4 xs:px-9 xs:py-4.5 sm:px-10 sm:py-5 text-lg xs:text-xl sm:text-xl',
   }
   
   return (

@@ -41,14 +41,15 @@ const DualValueProp = () => {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16">
+      {/* Responsive container with max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-white">What We</span>{' '}
@@ -59,7 +60,7 @@ const DualValueProp = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {valueProps.map((prop, index) => (
             <motion.div
               key={prop.title}

@@ -48,7 +48,8 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/95 backdrop-blur-md border-b border-primary-bright-green/20' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Responsive navbar container with max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Logo size="md" />
@@ -73,7 +74,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute top-full left-0 mt-2 w-64 glass-card"
+                        className="absolute top-full left-0 mt-2 w-56 sm:w-64 md:w-72 glass-card"
                       >
                         {link.dropdown.map((item) => (
                           <Link
