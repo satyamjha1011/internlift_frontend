@@ -9,7 +9,8 @@ import LatestBlogs from '../components/home/LatestBlogs'
 
 const Home = () => {
   return (
-    <div>
+    /* Main home container - ensures no horizontal overflow */
+    <div className="w-full max-w-full overflow-x-hidden">
       <HeroSection />
       <DualValueProp />
       <ServicesGrid />

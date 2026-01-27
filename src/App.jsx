@@ -9,6 +9,7 @@ import CaseStudies from './pages/CaseStudies'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import ContactUs from './pages/ContactUs'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 import NotFound from './pages/NotFound'
 import BackendDevelopment from './pages/services/BackendDevelopment'
 import FrontendDevelopment from './pages/services/FrontendDevelopment'
@@ -20,9 +21,10 @@ import CustomSoftware from './pages/services/CustomSoftware'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      {/* Main app container - prevents horizontal scroll and ensures full width */}
+      <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow w-full max-w-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
@@ -32,6 +34,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/services/backend-development" element={<BackendDevelopment />} />
             <Route path="/services/frontend-development" element={<FrontendDevelopment />} />
             <Route path="/services/ai-llm" element={<AIandLLM />} />

@@ -24,25 +24,26 @@ const InternshipSpotlight = () => {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 bg-gradient-to-b from-gray-900 to-black">
+      {/* Responsive container with max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-5 md:mb-6">
               <span className="text-white">Internship</span>{' '}
               <span className="gradient-text">Program</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-6">
+            <p className="text-lg md:text-xl text-gray-300 mb-4 md:mb-6">
               Transform your career with hands-on experience in real-world projects. 
               Our internship programs are designed to bridge the gap between academic 
               learning and industry requirements.
             </p>
-            <p className="text-gray-400 mb-8">
+            <p className="text-gray-400 mb-6 md:mb-8">
               Join hundreds of successful interns who have kickstarted their careers 
               with Internlift. Get practical experience, mentorship, and industry 
               recognition through our comprehensive programs.
@@ -60,7 +61,7 @@ const InternshipSpotlight = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
             {highlights.map((highlight, index) => {
               const Icon = highlight.icon

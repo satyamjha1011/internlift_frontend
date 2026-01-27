@@ -7,13 +7,51 @@
     @apply border-gray-700;
   }
   
+  /* Base font size for rem calculations - 16px default */
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base for rem units */
+  }
+  
+  /* Responsive font size scaling */
+  @media (min-width: 480px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    html {
+      font-size: 18px; /* Slightly larger on large screens */
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    html {
+      font-size: 20px; /* Larger on ultra-wide screens */
+    }
+  }
+  
   body {
     @apply bg-black text-white antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
   
-  html {
-    scroll-behavior: smooth;
+  /* Ensure all containers respect viewport width */
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 
@@ -23,7 +61,7 @@
   }
   
   .glass-card {
-    @apply glass-effect rounded-lg p-6 shadow-lg;
+    @apply glass-effect rounded-lg p-4 md:p-5 lg:p-6 shadow-lg;
   }
   
   .gradient-text {
@@ -37,10 +75,58 @@
   .glow-effect-strong {
     @apply shadow-[0_0_30px_rgba(0,255,0,0.5)];
   }
+  
+  /* Responsive container utility */
+  .container-responsive {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+  }
+  
+  @media (min-width: 480px) {
+    .container-responsive {
+      padding-left: 1.5rem; /* 24px */
+      padding-right: 1.5rem; /* 24px */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-responsive {
+      padding-left: 2rem; /* 32px */
+      padding-right: 2rem; /* 32px */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-responsive {
+      padding-left: 2.5rem; /* 40px */
+      padding-right: 2.5rem; /* 40px */
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .container-responsive {
+      max-width: 1440px;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .container-responsive {
+      max-width: 1600px; /* Constrain ultra-wide screens */
+    }
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Prevent content from breaking on ultra-wide screens */
+  .max-w-ultra {
+    max-width: 1600px;
   }
 }

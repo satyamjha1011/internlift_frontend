@@ -39,14 +39,15 @@ const StatsCounter = () => {
   }
 
   return (
-    <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 bg-black">
+      {/* Responsive container with max-width constraint */}
+      <div className="w-full max-w-[90rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-white">Our</span>{' '}
@@ -57,7 +58,7 @@ const StatsCounter = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
@@ -69,15 +70,21 @@ const StatsCounter = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 className="glass-card text-center"
               >
-                <div className="flex justify-center mb-4">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-primary-bright-green/20 to-primary-neon-green/20 flex items-center justify-center`}>
-                    <Icon className={`w-8 h-8 ${stat.color}`} />
+                {/* Responsive icon container */}
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 
+                                  rounded-full bg-gradient-to-br from-primary-bright-green/20 to-primary-neon-green/20 
+                                  flex items-center justify-center`}>
+                    <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 ${stat.color}`} />
                   </div>
                 </div>
-                <div className={`text-4xl md:text-5xl font-bold ${stat.color} mb-2`}>
+                {/* Responsive stat value */}
+                <div className={`text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl 
+                                font-bold ${stat.color} mb-1 sm:mb-2`}>
                   <Counter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
+                {/* Responsive stat label */}
+                <div className="text-gray-300 text-xs xs:text-sm sm:text-sm md:text-base">{stat.label}</div>
               </motion.div>
             )
           })}
