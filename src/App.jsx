@@ -22,9 +22,25 @@ function App() {
   return (
     <Router>
       {/* Main app container - prevents horizontal scroll and ensures full width with proper constraints */}
-      <div className="min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-hidden">
+      <div 
+        className="min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-hidden"
+        style={{ 
+          width: '100%', 
+          maxWidth: '100%', 
+          overflowX: 'hidden',
+          minWidth: 0
+        }}
+      >
         <Navbar />
-        <main className="flex-grow w-full max-w-full min-w-0 overflow-x-hidden">
+        <main 
+          className="flex-grow w-full max-w-full min-w-0 overflow-x-hidden"
+          style={{ 
+            width: '100%', 
+            maxWidth: '100%', 
+            overflowX: 'hidden',
+            minWidth: 0
+          }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />

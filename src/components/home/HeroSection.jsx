@@ -21,6 +21,12 @@ const HeroSection = () => {
       className="relative min-h-[100vh] sm:min-h-[90vh] md:min-h-[85vh] 
                  pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 
                  overflow-hidden overflow-x-hidden w-full max-w-full"
+      style={{ 
+        overflowX: 'hidden', 
+        width: '100%', 
+        maxWidth: '100%',
+        position: 'relative'
+      }}
       aria-label="Hero section"
     >
       {/* Animated Background - Using relative units for responsiveness */}
@@ -57,12 +63,13 @@ const HeroSection = () => {
 
       {/* Content Container - Responsive with proper spacing and overflow prevention */}
       <div className="relative z-10 
-                     w-full max-w-full
+                     w-full max-w-full min-w-0
                      sm:max-w-[95%] md:max-w-[90rem] 
                      mx-auto 
                      px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 
                      text-center
-                     overflow-x-hidden">
+                     overflow-x-hidden"
+                     style={{ maxWidth: '100%' }}>
         {/* MSME Badge - Commented out for now */}
         {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -155,11 +162,12 @@ const HeroSection = () => {
           className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 
                      grid grid-cols-2 md:grid-cols-4 
                      gap-2.5 xs:gap-3 sm:gap-4 md:gap-5 lg:gap-6 
-                     w-full max-w-full
+                     w-full max-w-full min-w-0
                      xs:max-w-[98%] sm:max-w-[95%] md:max-w-[90%] lg:max-w-4xl xl:max-w-5xl 
                      mx-auto
                      px-1 sm:px-2 md:px-0
                      overflow-x-hidden"
+                     style={{ maxWidth: '100%', width: '100%' }}
           role="region"
           aria-label="Company statistics"
         >
