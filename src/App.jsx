@@ -21,10 +21,10 @@ import CustomSoftware from './pages/services/CustomSoftware'
 function App() {
   return (
     <Router>
-      {/* Main app container - prevents horizontal scroll and ensures full width */}
-      <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
+      {/* Main app container - prevents horizontal scroll and ensures full width with proper constraints */}
+      <div className="min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-hidden">
         <Navbar />
-        <main className="flex-grow w-full max-w-full">
+        <main className="flex-grow w-full max-w-full min-w-0 overflow-x-hidden">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />

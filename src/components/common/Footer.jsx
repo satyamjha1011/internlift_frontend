@@ -40,12 +40,12 @@ const Footer = () => {
 
   return (
     <footer 
-      className="bg-black border-t border-primary-bright-green/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16"
+      className="bg-black border-t border-primary-bright-green/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16 overflow-x-hidden"
       role="contentinfo"
       aria-label="Site footer"
     >
       {/* Main footer container - responsive padding and max-width constraint */}
-      <div className="w-full max-w-[90rem] mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 py-8 sm:py-10 md:py-12 lg:py-16">
+      <div className="w-full max-w-full sm:max-w-[95%] md:max-w-[90rem] mx-auto px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-8 sm:py-10 md:py-12 lg:py-16 overflow-x-hidden">
         
         {/* Footer content grid - responsive columns */}
         <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
