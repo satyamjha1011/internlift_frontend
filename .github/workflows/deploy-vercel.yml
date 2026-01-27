@@ -12,26 +12,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check if secrets are configured
+        id: check-secrets
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ] || [ -z "${{ secrets.VERCEL_ORG_ID }}" ] || [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "configured=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Vercel secrets are not configured. Skipping deployment."
+            exit 0
+          else
+            echo "configured=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup Node.js
+        if: steps.check-secrets.outputs.configured == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+      - name: Install dependencies
+        if: steps.check-secrets.outputs.configured == 'true'
+        run: npm ci
 
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        continue-on-error: true
-
-      - name: Build Project
-        run: npm ci && npm run build
+      - name: Build project
+        if: steps.check-secrets.outputs.configured == 'true'
+        run: npm run build
         env:
           VITE_BASE_URL: ${{ secrets.VITE_BASE_URL || '/' }}
 
-      - name: Deploy Project to Vercel
-        id: vercel-deploy
+      - name: Deploy to Vercel
+        if: steps.check-secrets.outputs.configured == 'true'
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -39,3 +49,26 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           working-directory: ./
+
+  check-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Secrets
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ] || [ -z "${{ secrets.VERCEL_ORG_ID }}" ] || [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "⚠️ Vercel secrets are not configured!"
+            echo ""
+            echo "To enable Vercel deployment via GitHub Actions:"
+            echo "1. Go to your GitHub repository → Settings → Secrets and variables → Actions"
+            echo "2. Add these three secrets:"
+            echo "   - VERCEL_TOKEN (get from vercel.com → Settings → Tokens)"
+            echo "   - VERCEL_ORG_ID (get from Vercel project → Settings → General)"
+            echo "   - VERCEL_PROJECT_ID (get from Vercel project → Settings → General)"
+            echo ""
+            echo "📖 See VERCEL_SETUP.md for detailed instructions"
+            echo ""
+            echo "💡 Tip: You can also use Vercel's built-in GitHub integration (easier!)"
+            echo "   Just connect your repo in Vercel dashboard - no GitHub Actions needed!"
+          else
+            echo "✅ All Vercel secrets are configured!"
+          fi

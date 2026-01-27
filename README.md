@@ -108,20 +108,28 @@ This project is configured for CI/CD with GitHub Actions and can be deployed to:
 - **GitHub Pages** - See `DEPLOYMENT_GUIDE.md`
 - **Netlify** - See `DEPLOYMENT_GUIDE.md`
 
-### Quick Deploy
+### Quick Deploy (Easiest Method)
 
-1. Push code to GitHub
-2. Connect to Vercel/Netlify/GitHub Pages
-3. Add your custom domain
-4. Update DNS records
-5. Done! 🎉
+**Option 1: Vercel Built-in Integration (Recommended - No Setup Needed)**
+1. Go to [vercel.com](https://vercel.com) → Add New Project
+2. Import from GitHub → Select your repository
+3. Deploy! Automatic deployments on every push
 
-See `QUICK_START_DEPLOYMENT.md` for detailed step-by-step instructions.
+**Option 2: GitHub Actions (Requires Setup)**
+1. Set up secrets (see `SETUP_SECRETS.md`)
+2. Push code to GitHub
+3. Automatic deployment via GitHub Actions
 
 ### CI/CD Workflows
 
 - **CI**: Runs on every push/PR - builds and tests
 - **Deploy**: Automatically deploys on push to `main` branch
+
+### Troubleshooting
+
+- **Vercel token error?** → See `SETUP_SECRETS.md`
+- **GitHub Pages error?** → See `GITHUB_PAGES_SETUP.md`
+- **General deployment?** → See `DEPLOYMENT_GUIDE.md`
 
 ## 📞 Contact
 
