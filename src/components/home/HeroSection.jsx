@@ -18,15 +18,11 @@ import { Link } from 'react-router-dom'
 const HeroSection = () => {
   return (
     <section 
-      className="relative min-h-[100vh] sm:min-h-[90vh] md:min-h-[85vh] 
-                 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 
-                 overflow-hidden overflow-x-hidden w-full max-w-full"
-      style={{ 
-        overflowX: 'hidden', 
-        width: '100%', 
-        maxWidth: '100%',
-        position: 'relative'
-      }}
+      className="relative w-full
+                 py-16 sm:py-20 md:py-24 lg:py-28 
+                 pt-24 sm:pt-28 md:pt-32
+                 pb-12 sm:pb-16 md:pb-20 lg:pb-24 
+                 overflow-hidden"
       aria-label="Hero section"
     >
       {/* Animated Background - Using relative units for responsiveness */}
@@ -61,15 +57,17 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Content Container - Responsive with proper spacing and overflow prevention */}
-      <div className="relative z-10 
-                     w-full max-w-full min-w-0
-                     sm:max-w-[95%] md:max-w-[90rem] 
-                     mx-auto 
-                     px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 
-                     text-center
-                     overflow-x-hidden"
-                     style={{ maxWidth: '100%' }}>
+      {/* Content Container - Fluid responsive container that adapts to all screen sizes */}
+      {/* Uses percentage-based max-widths that scale smoothly without creating gaps */}
+      <div className="relative z-10 w-full mx-auto 
+                     px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16
+                     max-w-full 
+                     sm:max-w-full 
+                     md:max-w-full 
+                     lg:max-w-[95%] 
+                     xl:max-w-[90rem] 
+                     2xl:max-w-[90rem]
+                     text-center">
         {/* MSME Badge - Commented out for now */}
         {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,7 +94,7 @@ const HeroSection = () => {
           className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 
                      font-bold mb-4 sm:mb-5 md:mb-6 
                      leading-[1.1] sm:leading-[1.15] md:leading-tight
-                     px-2 sm:px-0"
+                     w-full"
         >
           <span className="text-white block sm:inline">Empowering</span>{' '}
           <span className="gradient-text block sm:inline">Innovation</span>
@@ -112,8 +110,8 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl 
                      text-gray-300 mb-6 sm:mb-8 md:mb-10 
-                     max-w-[95%] xs:max-w-[90%] sm:max-w-[85%] md:max-w-2xl lg:max-w-3xl 
-                     mx-auto px-2 sm:px-0
+                     max-w-full xs:max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-2xl xl:max-w-3xl 
+                     mx-auto w-full
                      leading-relaxed"
         >
           Leading IT services provider and internship platform based in Bengaluru. 
@@ -130,8 +128,7 @@ const HeroSection = () => {
                      justify-center 
                      gap-3 xs:gap-4 sm:gap-4 md:gap-5
                      mb-8 sm:mb-10 md:mb-12
-                     w-full sm:w-auto
-                     px-2 sm:px-0"
+                     w-full"
         >
           <Link 
             to="/contact" 
@@ -154,7 +151,8 @@ const HeroSection = () => {
           </Link>
         </motion.div>
 
-        {/* Stats Preview - Responsive grid with proper spacing and container constraints */}
+        {/* Stats Preview - Responsive grid with proper spacing to prevent overlap */}
+        {/* Grid uses full width on mobile/tablet, constrained on desktop to prevent empty space */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,12 +160,12 @@ const HeroSection = () => {
           className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 
                      grid grid-cols-2 md:grid-cols-4 
                      gap-2.5 xs:gap-3 sm:gap-4 md:gap-5 lg:gap-6 
-                     w-full max-w-full min-w-0
-                     xs:max-w-[98%] sm:max-w-[95%] md:max-w-[90%] lg:max-w-4xl xl:max-w-5xl 
-                     mx-auto
-                     px-1 sm:px-2 md:px-0
-                     overflow-x-hidden"
-                     style={{ maxWidth: '100%', width: '100%' }}
+                     w-full 
+                     max-w-full 
+                     lg:max-w-4xl 
+                     xl:max-w-5xl 
+                     2xl:max-w-5xl
+                     mx-auto"
           role="region"
           aria-label="Company statistics"
         >

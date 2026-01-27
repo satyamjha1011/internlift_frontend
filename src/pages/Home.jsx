@@ -10,20 +10,11 @@ import LatestBlogs from '../components/home/LatestBlogs'
 /**
  * Home Page - Main container with mobile-first responsive design
  * Prevents overlapping and ensures clean layout on all screen sizes
- * Fixes layout breaks when switching between mobile/desktop views
  */
 const Home = () => {
   return (
     /* Main home container - ensures no horizontal overflow, proper spacing, and fluid adaptation */
-    <div 
-      className="w-full max-w-full min-w-0 overflow-x-hidden min-h-screen"
-      style={{ 
-        width: '100%', 
-        maxWidth: '100%', 
-        overflowX: 'hidden',
-        minWidth: 0
-      }}
-    >
+    <div className="w-full max-w-full overflow-x-hidden min-h-screen relative">
       <HeroSection />
       <DualValueProp />
       <ServicesGrid />

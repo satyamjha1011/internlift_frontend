@@ -40,12 +40,12 @@ const Footer = () => {
 
   return (
     <footer 
-      className="bg-black border-t border-primary-bright-green/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16 overflow-x-hidden"
+      className="bg-black border-t border-primary-bright-green/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16"
       role="contentinfo"
       aria-label="Site footer"
     >
       {/* Main footer container - responsive padding and max-width constraint */}
-      <div className="w-full max-w-full sm:max-w-[95%] md:max-w-[90rem] mx-auto px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-8 sm:py-10 md:py-12 lg:py-16 overflow-x-hidden">
+      <div className="w-full max-w-[90rem] mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16 py-8 sm:py-10 md:py-12 lg:py-16">
         
         {/* Footer content grid - responsive columns */}
         <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
@@ -199,18 +199,18 @@ const Footer = () => {
                 className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5 md:mb-6" 
                 role="list"
               >
-                {footerLinks.programs.map((link) => (
-                  <li key={link.path}>
+              {footerLinks.programs.map((link) => (
+                <li key={link.path}>
                     <Link 
                       to={link.path} 
                       className="text-gray-300 text-sm sm:text-base hover:text-primary-bright-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-bright-green focus:ring-offset-2 focus:ring-offset-black rounded inline-block"
                       aria-label={`Navigate to ${link.label}`}
                     >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             </nav>
             
             {/* MSME Registration Card */}

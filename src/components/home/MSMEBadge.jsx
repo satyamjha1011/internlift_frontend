@@ -11,9 +11,9 @@ const MSMEBadge = () => {
   ]
 
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 overflow-x-hidden">
-      {/* Responsive container with constrained max-width and overflow prevention */}
-      <div className="w-full max-w-full sm:max-w-[95%] md:max-w-[56rem] mx-auto overflow-x-hidden">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16">
+      {/* Responsive container with constrained max-width */}
+      <div className="w-full max-w-[56rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

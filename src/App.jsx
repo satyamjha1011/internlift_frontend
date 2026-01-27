@@ -20,27 +20,16 @@ import CustomSoftware from './pages/services/CustomSoftware'
 
 function App() {
   return (
-    <Router>
-      {/* Main app container - prevents horizontal scroll and ensures full width with proper constraints */}
-      <div 
-        className="min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-hidden"
-        style={{ 
-          width: '100%', 
-          maxWidth: '100%', 
-          overflowX: 'hidden',
-          minWidth: 0
-        }}
-      >
+    <Router
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
+      {/* Main app container - prevents horizontal scroll and ensures full width */}
+      <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden relative">
         <Navbar />
-        <main 
-          className="flex-grow w-full max-w-full min-w-0 overflow-x-hidden"
-          style={{ 
-            width: '100%', 
-            maxWidth: '100%', 
-            overflowX: 'hidden',
-            minWidth: 0
-          }}
-        >
+        <main className="flex-grow w-full max-w-full overflow-x-hidden relative">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
