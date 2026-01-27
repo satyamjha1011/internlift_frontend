@@ -7,10 +7,14 @@ import MSMEBadge from '../components/home/MSMEBadge'
 import Testimonials from '../components/home/Testimonials'
 import LatestBlogs from '../components/home/LatestBlogs'
 
+/**
+ * Home Page - Main container with mobile-first responsive design
+ * Prevents overlapping and ensures clean layout on all screen sizes
+ */
 const Home = () => {
   return (
-    /* Main home container - ensures no horizontal overflow */
-    <div className="w-full max-w-full overflow-x-hidden">
+    /* Main home container - ensures no horizontal overflow and proper spacing */
+    <div className="w-full max-w-full overflow-x-hidden min-h-screen">
       <HeroSection />
       <DualValueProp />
       <ServicesGrid />

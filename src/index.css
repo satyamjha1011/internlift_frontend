@@ -130,3 +130,46 @@
     max-width: 1600px;
   }
 }
+
+/* Mobile-specific fixes to prevent overlapping */
+@media (max-width: 479px) {
+  /* Ensure proper spacing on very small screens */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Prevent text overflow */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Ensure buttons don't overflow */
+  button, a {
+    max-width: 100%;
+  }
+}
+
+/* Mobile breakpoint (480px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Improved spacing for small tablets */
+  .glass-card {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* Tablet breakpoint (768px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet-specific adjustments */
+  .glass-card {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* Desktop breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  /* Desktop optimizations */
+  .glass-card {
+    padding: 1.5rem;
+  }
+}
