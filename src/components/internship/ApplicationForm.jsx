@@ -5,6 +5,7 @@ import { Send, CheckCircle } from 'lucide-react'
 import Card from '../common/Card'
 import Button from '../common/Button'
 import LoadingSpinner from '../common/LoadingSpinner'
+import { internship_tracks } from '../../data/internshipTracks'
 
 const ApplicationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -137,12 +138,11 @@ const ApplicationForm = () => {
                 className="w-full px-4 py-3 bg-black/40 border border-primary-bright-green/30 rounded-lg text-white focus:outline-none focus:border-primary-bright-green focus:ring-2 focus:ring-primary-bright-green/20"
               >
                 <option value="">Select a track</option>
-                <option value="full-stack">Full Stack Development</option>
-                <option value="ai-ml">AI & Machine Learning</option>
-                <option value="mobile">Mobile Development</option>
-                <option value="backend">Backend Development</option>
-                <option value="iot">IoT Development</option>
-                <option value="devops">DevOps & Automation</option>
+                {internship_tracks.map((t) => (
+                  <option key={t.value} value={t.value}>
+                    {t.title}
+                  </option>
+                ))}
               </select>
               {errors.track && (
                 <p className="mt-1 text-sm text-red-400">{errors.track.message}</p>

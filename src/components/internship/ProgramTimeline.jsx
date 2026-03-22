@@ -5,7 +5,8 @@ const ProgramTimeline = () => {
   const phases = [
     {
       title: 'Application & Selection',
-      description: 'Submit your application and get selected based on your skills and interests',
+      description:
+        'Submit your application and get selected based on your skills and interests',
       duration: '1-2 weeks',
     },
     {
@@ -25,7 +26,8 @@ const ProgramTimeline = () => {
     },
     {
       title: 'Certificate & Verification',
-      description: 'Receive verified certificate and get added to our verification system',
+      description:
+        'Receive verified certificate and get added to our verification system',
       duration: '1 week',
     },
   ]

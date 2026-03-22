@@ -1,53 +1,47 @@
 import { motion } from 'framer-motion'
-import { Code, Brain, Cpu, Zap, Database, Smartphone } from 'lucide-react'
+import {
+  BarChart3,
+  Brain,
+  Briefcase,
+  Code,
+  Cpu,
+  Database,
+  FileCode,
+  Globe,
+  Laptop,
+  Palette,
+  Share2,
+  Shield,
+  Smartphone,
+  Sparkles,
+  ShoppingCart,
+  Workflow,
+  Zap,
+} from 'lucide-react'
 import Card from '../common/Card'
+import { internship_tracks } from '../../data/internshipTracks'
+
+const track_icons = {
+  Code,
+  Brain,
+  Smartphone,
+  Database,
+  Cpu,
+  Zap,
+  Laptop,
+  FileCode,
+  Globe,
+  Shield,
+  Palette,
+  Sparkles,
+  Briefcase,
+  BarChart3,
+  ShoppingCart,
+  Workflow,
+  Share2,
+}
 
 const TrackCards = () => {
-  const tracks = [
-    {
-      icon: Code,
-      title: 'Full Stack Development',
-      description: 'Master both frontend and backend technologies',
-      duration: '3-6 months',
-      skills: ['React', 'Node.js', 'Database', 'APIs'],
-    },
-    {
-      icon: Brain,
-      title: 'AI & Machine Learning',
-      description: 'Learn AI/ML concepts and build intelligent systems',
-      duration: '3-6 months',
-      skills: ['Python', 'TensorFlow', 'LLMs', 'NLP'],
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile Development',
-      description: 'Build iOS and Android applications',
-      duration: '3-6 months',
-      skills: ['React Native', 'Flutter', 'iOS', 'Android'],
-    },
-    {
-      icon: Database,
-      title: 'Backend Development',
-      description: 'Specialize in server-side development',
-      duration: '2-4 months',
-      skills: ['Django', 'Node.js', 'APIs', 'Database'],
-    },
-    {
-      icon: Cpu,
-      title: 'IoT Development',
-      description: 'Build connected devices and smart systems',
-      duration: '3-6 months',
-      skills: ['Arduino', 'Raspberry Pi', 'Sensors', 'Cloud'],
-    },
-    {
-      icon: Zap,
-      title: 'DevOps & Automation',
-      description: 'Learn CI/CD, cloud, and automation tools',
-      duration: '2-4 months',
-      skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD'],
-    },
-  ]
-
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -68,11 +62,11 @@ const TrackCards = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tracks.map((track, index) => {
-            const Icon = track.icon
+          {internship_tracks.map((track, index) => {
+            const Icon = track_icons[track.icon_name] || Code
             return (
               <motion.div
-                key={track.title}
+                key={track.value}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

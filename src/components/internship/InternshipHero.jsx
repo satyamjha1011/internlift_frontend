@@ -41,8 +41,8 @@ const InternshipHero = () => {
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            Transform your career with hands-on experience in real-world projects. 
-            Join our comprehensive internship programs designed to bridge the gap 
+            Transform your career with hands-on experience in real-world projects.
+            Join our comprehensive internship programs designed to bridge the gap
             between academic learning and industry requirements.
           </p>
 

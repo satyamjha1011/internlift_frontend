@@ -25,7 +25,8 @@ const SuccessStories = () => {
       role: 'Backend Developer',
       company: 'Digital Solutions',
       image: '👨‍💼',
-      quote: 'The 6-month program transformed my career. I went from a fresh graduate to a confident developer ready for the industry.',
+      quote:
+        'The 6-month program transformed my career. I went from a fresh graduate to a confident developer ready for the industry.',
       rating: 5,
     },
   ]
