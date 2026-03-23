@@ -4,6 +4,21 @@ import Card from '../components/common/Card'
 import Logo from '../components/common/Logo'
 
 const AboutUs = () => {
+  const partner_organizations = [
+    { name: 'ITALENT TECHNOLOGIES', logo_text: 'IT' },
+    { name: 'TECHNIZZ INFOTECH', logo_text: 'TI' },
+    { name: 'IJCRD', logo_text: 'IJ' },
+    { name: 'Combined Institute of Technology', logo_text: 'CIT' },
+    { name: 'Fintax Consultancy', logo_text: 'FC' },
+  ]
+
+  const trained_universities = [
+    'IIT Delhi',
+    'Visvesvaraya Technological University (VTU)',
+    'University of Hyderabad',
+    'PES University',
+  ]
+
   const values = [
     {
       icon: Target,
@@ -73,6 +88,65 @@ const AboutUs = () => {
             </p>
           </div>
         </motion.div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="glass-card p-8 mb-16"
+        >
+          <h2 className="text-3xl font-bold mb-6 gradient-text">
+            Our Partner Organizations & Institutes
+          </h2>
+          <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+            At Internlift, we collaborate with trusted partner organizations to
+            provide students with valuable internship and placement opportunities
+            across multiple domains. With proper mentorship and guidance, these
+            partnerships help us deliver industry-ready experiences to aspiring
+            professionals.
+          </p>
+          <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+            Our partner organizations include:
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {partner_organizations.map((partner) => (
+              <Card key={partner.name} hover className="h-full">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-bright-green to-primary-neon-green flex items-center justify-center text-black font-bold text-sm">
+                    {partner.logo_text}
+                  </div>
+                  <p className="text-white font-semibold leading-snug">
+                    {partner.name}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            Through these collaborations, we are able to deliver internships in
+            diverse fields, empowering students to gain practical skills and
+            career-focused exposure.
+          </p>
+
+          <h3 className="text-2xl font-bold mb-4 text-white">
+            Students We Have Trained
+          </h3>
+          <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+            We have successfully trained individual students who are part of
+            some of India&apos;s most respected universities and their affiliated
+            colleges, including:
+          </p>
+          <ul className="space-y-2">
+            {trained_universities.map((university) => (
+              <li key={university} className="text-gray-200 text-lg">
+                - {university}
+              </li>
+            ))}
+          </ul>
+        </motion.section>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {values.map((value, index) => {
