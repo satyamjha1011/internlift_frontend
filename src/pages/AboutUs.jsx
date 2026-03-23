@@ -146,6 +146,22 @@ const AboutUs = () => {
               </li>
             ))}
           </ul>
+
+          <div className="mt-8 p-5 rounded-xl border border-primary-bright-green/30 bg-primary-bright-green/10">
+            <h4 className="text-lg font-semibold text-primary-bright-green mb-2">
+              Disclaimer
+            </h4>
+            <p className="text-gray-200 leading-relaxed">
+              Internlift provides independent internship and training opportunities
+              directly to individual students. While many of our trainees belong
+              to prestigious universities such as IIT Delhi, Visvesvaraya
+              Technological University (VTU), University of Hyderabad, and PES
+              University, our programs are not officially affiliated with or
+              endorsed by these institutions. All internships, mentorship, and
+              certifications are offered solely under Internlift and its partner
+              organizations.
+            </p>
+          </div>
         </motion.section>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
