@@ -2,53 +2,9 @@ import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
 import Card from '../components/common/Card'
 import { Link } from 'react-router-dom'
+import { blog_posts } from '../data/blogPosts'
 
 const Blog = () => {
-  const posts = [
-    {
-      title: 'Getting Started with React 18',
-      excerpt: 'Learn the latest features and best practices in React 18 for modern web development.',
-      date: '2024-01-15',
-      slug: 'getting-started-with-react-18',
-      category: 'Frontend',
-    },
-    {
-      title: 'AI Integration in Modern Applications',
-      excerpt: 'Discover how to integrate AI and LLM solutions into your applications effectively.',
-      date: '2024-01-10',
-      slug: 'ai-integration-modern-applications',
-      category: 'AI/ML',
-    },
-    {
-      title: 'IoT Solutions for Smart Businesses',
-      excerpt: 'Explore how IoT can transform your business operations and improve efficiency.',
-      date: '2024-01-05',
-      slug: 'iot-solutions-smart-businesses',
-      category: 'IoT',
-    },
-    {
-      title: 'Django Best Practices for Backend Development',
-      excerpt: 'Essential tips and patterns for building robust Django applications.',
-      date: '2023-12-28',
-      slug: 'django-best-practices',
-      category: 'Backend',
-    },
-    {
-      title: 'No-Code Automation: When and Why',
-      excerpt: 'Understanding when to use no-code solutions and when to build custom automation.',
-      date: '2023-12-20',
-      slug: 'no-code-automation-guide',
-      category: 'Automation',
-    },
-    {
-      title: 'Building Scalable Microservices',
-      excerpt: 'Architecture patterns and best practices for microservices development.',
-      date: '2023-12-15',
-      slug: 'scalable-microservices',
-      category: 'Backend',
-    },
-  ]
-
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -73,7 +29,7 @@ const Blog = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post, index) => (
+          {blog_posts.map((post, index) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 50 }}

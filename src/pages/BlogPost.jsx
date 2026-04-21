@@ -2,31 +2,11 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowLeft } from 'lucide-react'
 import Card from '../components/common/Card'
+import { blog_posts } from '../data/blogPosts'
 
 const BlogPost = () => {
   const { slug } = useParams()
-
-  // In a real app, this would fetch from an API
-  const post = {
-    title: 'Getting Started with React 18',
-    date: '2024-01-15',
-    category: 'Frontend',
-    content: `
-      <p>React 18 introduces several exciting features and improvements that make building modern web applications even more powerful and efficient.</p>
-      
-      <h2>New Features</h2>
-      <p>One of the most significant additions is Concurrent Rendering, which allows React to interrupt, pause, and resume rendering work. This results in a more responsive user experience.</p>
-      
-      <h2>Automatic Batching</h2>
-      <p>React 18 automatically batches state updates, even in promises, timeouts, and native event handlers. This reduces unnecessary re-renders and improves performance.</p>
-      
-      <h2>New Hooks</h2>
-      <p>Several new hooks have been introduced, including useTransition, useDeferredValue, and useId, which provide more control over rendering and component behavior.</p>
-      
-      <h2>Server Components</h2>
-      <p>While still experimental, Server Components represent a significant shift in how we think about React applications, enabling better performance and developer experience.</p>
-    `,
-  }
+  const post = blog_posts.find((item) => item.slug === slug)
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
@@ -36,6 +16,19 @@ const BlogPost = () => {
   return (
     <div className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!post ? (
+          <Card glow>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">Blog post not found</h1>
+            <p className="text-gray-300 mb-6">
+              The post you are looking for does not exist or has been moved.
+            </p>
+            <Link to="/blog" className="inline-flex items-center space-x-2 text-primary-bright-green hover:text-primary-neon-green transition-colors">
+              <ArrowLeft className="w-5 h-5" />
+              <span>Back to Blog</span>
+            </Link>
+          </Card>
+        ) : (
+          <>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,6 +68,8 @@ const BlogPost = () => {
             />
           </Card>
         </motion.article>
+          </>
+        )}
       </div>
     </div>
   )

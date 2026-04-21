@@ -25,6 +25,7 @@ const Footer = () => {
       { path: '/blog', label: 'Blog' },
       { path: '/contact', label: 'Contact' },
       { path: '/privacy-policy', label: 'Privacy Policy' }, // New link added
+      { path: '/terms-and-conditions', label: 'Terms and Conditions' },
     ],
     services: [
       { path: '/services/backend-development', label: 'Backend Development' },

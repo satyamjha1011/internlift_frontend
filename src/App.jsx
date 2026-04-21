@@ -10,6 +10,7 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import ContactUs from './pages/ContactUs'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
 import SignupRedirect from './pages/SignupRedirect'
 import NotFound from './pages/NotFound'
 import BackendDevelopment from './pages/services/BackendDevelopment'
@@ -44,6 +45,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/signup" element={<SignupRedirect />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/services/backend-development" element={<BackendDevelopment />} />
             <Route path="/services/frontend-development" element={<FrontendDevelopment />} />
             <Route path="/services/ai-llm" element={<AIandLLM />} />

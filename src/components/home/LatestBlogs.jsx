@@ -2,28 +2,10 @@ import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
 import Card from '../common/Card'
 import { Link } from 'react-router-dom'
+import { blog_posts } from '../../data/blogPosts'
 
 const LatestBlogs = () => {
-  const blogs = [
-    {
-      title: 'Getting Started with React 18',
-      excerpt: 'Learn the latest features and best practices in React 18 for modern web development.',
-      date: '2024-01-15',
-      slug: 'getting-started-with-react-18',
-    },
-    {
-      title: 'AI Integration in Modern Applications',
-      excerpt: 'Discover how to integrate AI and LLM solutions into your applications effectively.',
-      date: '2024-01-10',
-      slug: 'ai-integration-modern-applications',
-    },
-    {
-      title: 'IoT Solutions for Smart Businesses',
-      excerpt: 'Explore how IoT can transform your business operations and improve efficiency.',
-      date: '2024-01-05',
-      slug: 'iot-solutions-smart-businesses',
-    },
-  ]
+  const blogs = blog_posts.slice(0, 3)
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
