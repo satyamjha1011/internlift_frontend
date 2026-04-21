@@ -18,6 +18,7 @@ import AIandLLM from './pages/services/AIandLLM'
 import IoTSolutions from './pages/services/IoTSolutions'
 import NoCodeAutomation from './pages/services/NoCodeAutomation'
 import CustomSoftware from './pages/services/CustomSoftware'
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </Router>
   )
 }
