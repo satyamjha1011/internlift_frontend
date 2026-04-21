@@ -4,7 +4,6 @@ import ServicesGrid from '../components/home/ServicesGrid'
 import StatsCounter from '../components/home/StatsCounter'
 import InternshipSpotlight from '../components/home/InternshipSpotlight'
 import MSMEBadge from '../components/home/MSMEBadge'
-import AIVerificationFaq from '../components/home/AIVerificationFaq'
 import Testimonials from '../components/home/Testimonials'
 import LatestBlogs from '../components/home/LatestBlogs'
 
@@ -22,7 +21,6 @@ const Home = () => {
       <StatsCounter />
       <InternshipSpotlight />
       <MSMEBadge />
-      <AIVerificationFaq />
       <Testimonials />
       <LatestBlogs />
     </div>

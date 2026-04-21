@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import AIVerificationFaq from '../components/home/AIVerificationFaq'
+
 const faq_items = [
   {
     question: 'What IT services does Internlift India Technology offer?',
@@ -40,6 +43,9 @@ const Faq = () => {
               <p className="text-gray-300">{faq_item.answer}</p>
             </section>
           ))}
+        </div>
+        <div id="ai-verification-faq" className="mt-8">
+          <AIVerificationFaq />
         </div>
       </div>
     </div>

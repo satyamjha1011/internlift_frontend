@@ -314,7 +314,8 @@ const set_meta = (key, value, is_property = false) => {
 }
 
 const SeoManager = () => {
-  const { pathname } = useLocation()
+  const location = useLocation()
+  const { pathname, hash } = location
 
   useEffect(() => {
     const seo = get_seo_data(pathname)
@@ -357,7 +358,15 @@ const SeoManager = () => {
         document.head.appendChild(script_tag)
       })
     }
-  }, [pathname])
+    if (hash) {
+      const target = document.querySelector(hash)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname, hash])
 
   return null
 }
