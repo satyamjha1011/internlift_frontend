@@ -19,6 +19,7 @@ import IoTSolutions from './pages/services/IoTSolutions'
 import NoCodeAutomation from './pages/services/NoCodeAutomation'
 import CustomSoftware from './pages/services/CustomSoftware'
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Footer />
       </div>
       <Analytics />
+      <SpeedInsights />
     </Router>
   )
 }
