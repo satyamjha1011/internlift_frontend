@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MessageSquareQuote, CheckCircle2 } from 'lucide-react'
+import { MessageSquare, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Card from '../common/Card'
 
@@ -114,7 +114,7 @@ const AIVerificationFaq = () => {
         <Card hover={false} className="p-5 sm:p-6 md:p-8 lg:p-10 border border-primary-bright-green/30">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-bright-green to-primary-neon-green flex items-center justify-center">
-              <MessageSquareQuote className="w-5 h-5 text-black" />
+              <MessageSquare className="w-5 h-5 text-black" />
             </div>
             <p className="text-primary-bright-green font-semibold text-sm sm:text-base uppercase tracking-wide">
               Official Clarifications
