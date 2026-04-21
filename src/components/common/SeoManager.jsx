@@ -174,6 +174,43 @@ const page_seo = {
     description:
       'Read FAQs about Internlift India Technology, including IT services India capabilities, internship programs, and tech internships India application details.',
   },
+  '/university-compliance-notice': {
+    title: 'Official University Compliance Notice | Internlift India Technology',
+    description:
+      'Official university compliance and verification notice with reference number, fee-cap compliance, legal credentials, and verification contact details.',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Official University Compliance & Notice',
+        url: `${base_url}/university-compliance-notice`,
+        description:
+          'Verification page containing listed university compliance details, official notification reference, fee-cap compliance statement, and contact channel.',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is Internlift fake or scam?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Internlift publishes compliance and verification details publicly, including MSME registration number, listed university notice reference, and direct verification contact support@internlift.com for cross-check.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Where can students verify university-linked internship fee details?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Students can verify details from the Official University Compliance Notice page, published university notice board references, and support@internlift.com. For the listed Purnea University case, Online Mode fee cap is ₹400/- (All Inclusive), and Internlift fee is ₹400.',
+            },
+          },
+        ],
+      },
+    ],
+  },
   '/contact': {
     title: 'Contact Internlift India Technology | IT Services India',
     description:
