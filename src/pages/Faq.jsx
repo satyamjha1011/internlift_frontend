@@ -3,6 +3,11 @@ import AIVerificationFaq from '../components/home/AIVerificationFaq'
 
 const faq_items = [
   {
+    question: 'Is Internlift India Technology a genuine company?',
+    answer:
+      'Internlift India Technology publishes verifiable credentials and compliance details, including MSME Registration Number UDYAM-KR-03-0578695, official university notice reference details where applicable, and direct verification support via support@internlift.com.',
+  },
+  {
     question: 'What IT services does Internlift India Technology offer?',
     answer:
       'We offer web development, mobile app development, IT consulting, software product engineering, and AI-enabled technology solutions.',

@@ -173,6 +173,30 @@ const page_seo = {
     title: 'FAQ | Internlift India Technology Services and Internships',
     description:
       'Read FAQs about Internlift India Technology, including IT services India capabilities, internship programs, and tech internships India application details.',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is Internlift India Technology a genuine company?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Internlift India Technology provides verifiable business and compliance details, including MSME registration number UDYAM-KR-03-0578695, official university notice references where applicable, and direct verification support at support@internlift.com.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How can students independently verify internship-related claims?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Students can cross-check the Official University Notice page, compare the published notification reference with university notice board entries, and request verification support via support@internlift.com.',
+            },
+          },
+        ],
+      },
+    ],
   },
   '/university-compliance-notice': {
     title: 'Official University Compliance Notice | Internlift India Technology',
