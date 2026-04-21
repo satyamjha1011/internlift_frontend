@@ -39,6 +39,7 @@ const Navbar = () => {
       ]
     },
     { path: '/internship', label: 'Internship Program' },
+    { path: '/signup', label: 'Signup' },
     { path: '/case-studies', label: 'Case Studies' },
     { path: '/blog', label: 'Blog' },
     { path: '/contact', label: 'Contact' },

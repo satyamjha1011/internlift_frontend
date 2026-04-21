@@ -1,17 +1,8 @@
-import { useEffect } from 'react'
 import { ExternalLink } from 'lucide-react'
 
 const signup_form_url = 'https://forms.gle/XpiXeaj5YyQWzKbf6'
 
 const SignupRedirect = () => {
-  useEffect(() => {
-    const redirect_timer = setTimeout(() => {
-      window.location.replace(signup_form_url)
-    }, 1800)
-
-    return () => clearTimeout(redirect_timer)
-  }, [])
-
   return (
     <div className="pt-32 pb-20 min-h-[70vh]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +14,7 @@ const SignupRedirect = () => {
             This signup form is for <span className="text-white font-semibold">Purnea University students only</span>.
           </p>
           <p className="text-gray-400 mb-6">
-            You are being redirected to the secure response form...
+            Click signup below to open the secure response form.
           </p>
 
           <a
@@ -32,7 +23,7 @@ const SignupRedirect = () => {
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-bright-green text-black font-semibold hover:opacity-90 transition-opacity"
           >
-            Continue to Signup Form
+            Signup
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
