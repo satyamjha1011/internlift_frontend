@@ -59,8 +59,7 @@ const AboutUs = () => {
             <span className="gradient-text">Internlift</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            MSME-registered IT services company and internship provider based in Bengaluru, 
-            dedicated to empowering innovation through technology.
+            MSME-registered IT services company with active operations across Tier-1 cities including Bengaluru, Delhi, Kolkata, and Hyderabad, alongside regional markets.
           </p>
         </motion.div>
 
@@ -73,13 +72,14 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold mb-6 gradient-text">Who We Are</h2>
           <p className="text-gray-300 mb-4 text-lg leading-relaxed">
             Internlift India Technology is a registered MSME (Micro, Small & Medium Enterprise) 
-            company based in Bengaluru, Karnataka. We specialize in providing comprehensive IT 
-            services and internship programs that help bridge the gap between academic learning 
-            and industry requirements.
+            company based in Bengaluru, Karnataka. Our primary focus is IT services delivery for
+            clients and partner organizations, including software development and consulting
+            engagements across India.
           </p>
           <p className="text-gray-300 mb-4 text-lg leading-relaxed">
-            Our team of experienced professionals is committed to delivering high-quality solutions 
-            while nurturing the next generation of tech talent through our structured internship programs.
+            Alongside our services business, we run structured internship programs where students
+            receive handholding practice on live projects to bridge the gap between academic learning
+            and industry requirements.
           </p>
           <div className="mt-6 p-4 bg-primary-bright-green/10 rounded-lg border border-primary-bright-green/20">
             <p className="text-sm text-gray-400 mb-1">MSME Registration Number</p>

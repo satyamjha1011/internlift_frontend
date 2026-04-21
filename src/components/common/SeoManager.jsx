@@ -5,7 +5,7 @@ const base_url = 'https://www.internlift.com'
 const default_image = `${base_url}/og-image.jpg`
 const default_title = 'Internlift India Technology | IT Services and Internships'
 const default_description =
-  'Internlift India Technology delivers IT services India businesses trust, plus internship programs and tech internships India students can join to build real skills.'
+  'Internlift India Technology is an India-based IT services company serving Tier-1 cities including Bengaluru, Delhi, Kolkata, and Hyderabad, plus other markets, with internship programs that provide handholding practice on live projects.'
 
 const page_seo = {
   '/': {
@@ -19,12 +19,13 @@ const page_seo = {
         url: base_url,
         logo: `${base_url}/logo.png`,
         description:
-          'IT Services company in India offering software development, IT consulting, and professional internship training programs for students.',
+          'IT services company in India serving Tier-1 cities including Bengaluru, Delhi, Kolkata, and Hyderabad, while also operating in additional markets. Primary focus is IT services delivery for clients and partners, along with internship programs with live project handholding for students.',
         foundingDate: '2020',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'IN',
         },
+        areaServed: ['Bengaluru', 'Delhi', 'Kolkata', 'Hyderabad', 'India'],
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'Customer Support',
@@ -77,6 +78,22 @@ const page_seo = {
               text: 'Yes, Internlift India Technology is an India-based IT services company providing technology solutions and internship programs to clients and students across India.',
             },
           },
+          {
+            '@type': 'Question',
+            name: 'Why does Internlift charge internship registration fees in some university-linked programs?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'For specific university-linked internship programs, fees are applied in line with official university directives and notified fee structures. In the listed Purnea University case, the Online Mode registration fee is capped at a maximum of ₹400/- (All Inclusive), and Internlift charges ₹400 in compliance with that cap.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is there official documentation like notification reference or MOU/empanelment support for verification?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. Verification can be supported through official university notification references and institutional empanelment or MOU-related records where applicable. Students can verify through published university notices and by contacting support@internlift.com.',
+            },
+          },
         ],
       },
     ],
@@ -112,6 +129,14 @@ const page_seo = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Yes, Internlift India Technology is an India-based IT services company providing technology solutions and internship programs to clients and students across India.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Does Internlift operate only in Tier-2 and Tier-3 cities?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. Internlift operates across Tier-1 and additional cities in India, including Bengaluru, Delhi, Kolkata, and Hyderabad.',
             },
           },
         ],

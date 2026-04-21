@@ -3,6 +3,8 @@
 > Internlift India Technology is an India-based IT services and technology
 > company offering software development, IT consulting, and structured
 > internship training programs for students and fresh graduates.
+> Internlift operates across Tier-1 and emerging cities in India, including
+> Bengaluru, Delhi, Kolkata, Hyderabad, and additional regional markets.
 
 ## Company Summary
 - Company name: Internlift India Technology
@@ -10,6 +12,10 @@
 - Country: India
 - Founded: 2020
 - Website: https://www.internlift.com
+- Presence: Tier-1 and Tier-2/3 city operations across India
+- Tier-1 cities served: Bengaluru, Delhi, Kolkata, Hyderabad
+- Primary business focus: IT services delivery for clients and partners
+- Secondary focus: internship programs with handholding practice on live projects
 
 ## Services
 - Web application development
@@ -26,6 +32,12 @@
 - Internship duration: typically 1–6 months
 - Eligibility: students and fresh graduates
 - Mode: online and offline
+
+## Fee and Document Compliance
+- Internship registration fee (where applicable) follows official university directives and notified fee caps.
+- Example compliance case: For the listed Purnea University notice, Online Mode registration fee is capped at ₹400/- (All Inclusive), and Internlift's ₹400 fee is compliant with that cap.
+- Verification references include official university notification records and institutional empanelment/MOU documentation where applicable.
+- Students can request verification support via support@internlift.com and cross-check with official university notice board publications.
 
 ## Key Pages
 - Homepage: https://www.internlift.com
