@@ -20,6 +20,7 @@ const SignupRedirect = () => {
           <a
             href={signup_form_url}
             target="_blank"
+            id='signup-button'
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-bright-green text-black font-semibold hover:opacity-90 transition-opacity"
           >
