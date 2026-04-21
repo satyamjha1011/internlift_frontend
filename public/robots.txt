@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+
+# Allow Google
+User-agent: Googlebot
+Allow: /
+
+# Allow OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Allow Claude / Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Allow Google Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Allow Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Allow Grok / xAI
+User-agent: Twitterbot
+Allow: /
+
+Sitemap: https://www.internlift.com/sitemap.xml

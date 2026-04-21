@@ -19,6 +19,7 @@ const Logo = ({ className = '', showLink = true, size = 'md', useImage = true })
         <img 
           src={logoImagePath} 
           alt="Internlift India Technology Logo" 
+          loading="lazy"
           className={`${currentSize.img} w-auto object-contain`}
           onError={(e) => {
             // Fallback to SVG if image doesn't exist
@@ -135,6 +136,7 @@ const Logo = ({ className = '', showLink = true, size = 'md', useImage = true })
           <img 
             src={logoImagePath} 
             alt="Internlift India Technology Logo" 
+            loading="lazy"
             className={`${currentSize.img} w-auto object-contain flex-shrink-0`}
             onError={(e) => {
               // Fallback to SVG if image doesn't load

@@ -21,6 +21,9 @@ const Footer = () => {
   const footerLinks = {
     company: [
       { path: '/about', label: 'About Us' },
+      { path: '/services', label: 'Services' },
+      { path: '/internships', label: 'Internships' },
+      { path: '/faq', label: 'FAQ' },
       { path: '/case-studies', label: 'Case Studies' },
       { path: '/blog', label: 'Blog' },
       { path: '/contact', label: 'Contact' },

@@ -19,6 +19,10 @@ import AIandLLM from './pages/services/AIandLLM'
 import IoTSolutions from './pages/services/IoTSolutions'
 import NoCodeAutomation from './pages/services/NoCodeAutomation'
 import CustomSoftware from './pages/services/CustomSoftware'
+import Services from './pages/Services'
+import Internships from './pages/Internships'
+import Faq from './pages/Faq'
+import SeoManager from './components/common/SeoManager'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -32,17 +36,21 @@ function App() {
     >
       {/* Main app container - prevents horizontal scroll and ensures full width */}
       <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden relative">
+        <SeoManager />
         <Navbar />
         <main className="flex-grow w-full max-w-full overflow-x-hidden relative">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/internship" element={<InternshipProgram />} />
+            <Route path="/internships" element={<Internships />} />
             <Route path="/verify" element={<VerifyIntern />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/signup" element={<SignupRedirect />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

@@ -1,0 +1,39 @@
+# Internlift India Technology
+
+> Internlift India Technology is an India-based IT services and technology
+> company offering software development, IT consulting, and structured
+> internship training programs for students and fresh graduates.
+
+## Company Summary
+- Company name: Internlift India Technology
+- Industry: Information Technology Services
+- Country: India
+- Founded: 2020
+- Website: https://www.internlift.com
+
+## Services
+- Web application development
+- Mobile app development
+- IT consulting and solutions
+- Software product development
+- Technology training
+
+## Internship Programs
+- Software Engineering internship
+- Web Development internship
+- Data Analytics internship
+- Digital Marketing internship
+- Internship duration: typically 1–6 months
+- Eligibility: students and fresh graduates
+- Mode: online and offline
+
+## Key Pages
+- Homepage: https://www.internlift.com
+- Services: https://www.internlift.com/services
+- Internships: https://www.internlift.com/internships
+- About us: https://www.internlift.com/about
+- Contact: https://www.internlift.com/contact
+
+## Contact
+- Email: support@internlift.com
+- Location: India
