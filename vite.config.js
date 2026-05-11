@@ -12,11 +12,17 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    cssCodeSplit: true,
+    modulePreload: {
+      polyfill: false,
+    },
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+          router: ['react-router-dom'],
           animations: ['framer-motion'],
+          icons: ['lucide-react'],
+          forms: ['react-hook-form', 'axios'],
         },
       },
     },

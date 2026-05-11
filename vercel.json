@@ -4,6 +4,17 @@
       "source": "/(.*)",
       "has": [
         {
+          "type": "host",
+          "value": "internlift.com"
+        }
+      ],
+      "destination": "https://www.internlift.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
           "type": "header",
           "key": "x-forwarded-proto",
           "value": "http"
@@ -24,6 +35,10 @@
       "source": "/(.*)",
       "headers": [
         {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
         },
@@ -38,7 +53,16 @@
       ]
     },
     {
-      "source": "/static/(.*)",
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|gif|webp|avif|svg|ico|woff|woff2)$",
       "headers": [
         {
           "key": "Cache-Control",

@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Button from '../common/Button'
 import { Link } from 'react-router-dom'
 
@@ -29,30 +28,20 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,0,0.1),transparent_50%)]" />
         {/* Background blur elements - hidden on very small screens to prevent overlap */}
-        <motion.div
+        <div
           className="hidden sm:block absolute top-[20%] sm:top-[15%] md:top-[10%] 
                      left-[5%] sm:left-[8%] md:left-[10%]
                      w-[10rem] sm:w-[14rem] md:w-[18rem] lg:w-[20rem] 
                      h-[10rem] sm:h-[14rem] md:h-[18rem] lg:h-[20rem]
-                     bg-primary-bright-green/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
+                     bg-primary-bright-green/10 rounded-full blur-3xl animate-pulse"
           aria-hidden="true"
         />
-        <motion.div
+        <div
           className="hidden sm:block absolute bottom-[15%] sm:bottom-[10%] md:bottom-[8%]
                      right-[5%] sm:right-[8%] md:right-[10%]
                      w-[12rem] sm:w-[16rem] md:w-[20rem] lg:w-[24rem] 
                      h-[12rem] sm:h-[16rem] md:h-[20rem] lg:h-[24rem]
-                     bg-primary-neon-green/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
+                     bg-primary-neon-green/10 rounded-full blur-3xl animate-pulse"
           aria-hidden="true"
         />
       </div>
@@ -87,10 +76,7 @@ const HeroSection = () => {
         </motion.div> */}
 
         {/* Responsive heading with fluid typography - prevents text overflow */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+        <h1
           className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 
                      font-bold mb-4 sm:mb-5 md:mb-6 
                      leading-[1.1] sm:leading-[1.15] md:leading-tight
@@ -101,13 +87,10 @@ const HeroSection = () => {
           <br className="hidden sm:block" />
           <span className="text-white block sm:inline">Through</span>{' '}
           <span className="gradient-text block sm:inline">Technology</span>
-        </motion.h1>
+        </h1>
 
         {/* Responsive paragraph with constrained max-width - prevents text overflow */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+        <p
           className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl 
                      text-gray-300 mb-6 sm:mb-8 md:mb-10 
                      max-w-full xs:max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-2xl xl:max-w-3xl 
@@ -116,13 +99,10 @@ const HeroSection = () => {
         >
           Leading IT services provider and internship platform based in Bengaluru. 
           We deliver cutting-edge solutions and nurture the next generation of tech talent.
-        </motion.p>
+        </p>
 
         {/* Buttons Container - Stacks vertically on mobile, horizontal on larger screens */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
+        <div
           className="flex flex-col sm:flex-row 
                      items-stretch sm:items-center 
                      justify-center 
@@ -149,14 +129,11 @@ const HeroSection = () => {
               Explore Internships
             </Button>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Stats Preview - Responsive grid with proper spacing to prevent overlap */}
         {/* Grid uses full width on mobile/tablet, constrained on desktop to prevent empty space */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
+        <div
           className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 
                      grid grid-cols-2 md:grid-cols-4 
                      gap-2.5 xs:gap-3 sm:gap-4 md:gap-5 lg:gap-6 
@@ -174,12 +151,9 @@ const HeroSection = () => {
             { value: '100+', label: 'Interns Placed' },
             { value: '6+', label: 'Services Offered' },
             { value: '5+', label: 'Years Experience' },
-          ].map((stat, index) => (
-            <motion.div
+          ].map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
               className="glass-card text-center 
                         p-3 xs:p-3.5 sm:p-4 md:p-5
                         min-h-[5rem] xs:min-h-[5.5rem] sm:min-h-[6rem] md:min-h-[7rem]
@@ -196,31 +170,20 @@ const HeroSection = () => {
                             leading-tight
                             break-words
                             px-0.5">{stat.label}</div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator - Responsive positioning, hidden on very small screens */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+      <div
         className="hidden xs:block absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         aria-hidden="true"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary-bright-green/50 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-primary-bright-green rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
+        <div className="w-6 h-10 border-2 border-primary-bright-green/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary-bright-green rounded-full mt-2 animate-bounce" />
+        </div>
+      </div>
     </section>
   )
 }
