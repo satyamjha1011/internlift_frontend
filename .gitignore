@@ -122,3 +122,5 @@ temp/
 # Documentation files (except README.md)
 *.md
 !README.md
+
+graphify-out/
