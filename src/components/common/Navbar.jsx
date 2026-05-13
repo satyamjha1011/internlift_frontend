@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './Logo'
 
 const Navbar = () => {
@@ -69,26 +68,19 @@ const Navbar = () => {
                     <span>{link.label}</span>
                     <ChevronDown className="w-4 h-4" />
                   </button>
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="absolute top-full left-0 mt-2 w-56 sm:w-64 md:w-72 glass-card"
-                      >
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.path}
-                            to={item.path}
-                            className="block px-4 py-3 text-white hover:text-primary-bright-green hover:bg-primary-bright-green/10 transition-colors rounded-lg"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {servicesOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-56 sm:w-64 md:w-72 glass-card">
+                      {link.dropdown.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="block px-4 py-3 text-white hover:text-primary-bright-green hover:bg-primary-bright-green/10 transition-colors rounded-lg"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <Link
@@ -116,45 +108,38 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/95 backdrop-blur-md border-t border-primary-bright-green/20"
-          >
-            <div className="px-4 py-4 space-y-2">
-              {navLinks.map((link) => (
-                link.dropdown ? (
-                  <div key={link.label} className="space-y-2">
-                    <div className="text-primary-bright-green font-semibold px-2 py-2">{link.label}</div>
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block px-4 py-2 text-white hover:text-primary-bright-green hover:bg-primary-bright-green/10 rounded-lg transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`block px-2 py-2 text-white hover:text-primary-bright-green transition-colors rounded-lg ${
-                      location.pathname === link.path ? 'text-primary-bright-green bg-primary-bright-green/10' : ''
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-primary-bright-green/20">
+          <div className="px-4 py-4 space-y-2">
+            {navLinks.map((link) => (
+              link.dropdown ? (
+                <div key={link.label} className="space-y-2">
+                  <div className="text-primary-bright-green font-semibold px-2 py-2">{link.label}</div>
+                  {link.dropdown.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="block px-4 py-2 text-white hover:text-primary-bright-green hover:bg-primary-bright-green/10 rounded-lg transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`block px-2 py-2 text-white hover:text-primary-bright-green transition-colors rounded-lg ${
+                    location.pathname === link.path ? 'text-primary-bright-green bg-primary-bright-green/10' : ''
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

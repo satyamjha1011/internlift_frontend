@@ -7,6 +7,8 @@ import Button from '../common/Button'
 import LoadingSpinner from '../common/LoadingSpinner'
 import { internship_tracks } from '../../data/internshipTracks'
 
+const INTERNSHIP_APPS_SCRIPT_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxaCLXj4N3YINfpKKgrxY2hxfV7IkNOaP-mTSK6DmjaJ-XSkN90E0_1Fuh7bBXjno3TQw/exec'
+
 const ApplicationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -14,14 +16,38 @@ const ApplicationForm = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    reset()
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+    try {
+      const response = await fetch(INTERNSHIP_APPS_SCRIPT_WEBAPP_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: JSON.stringify({
+          name: data.name || '',
+          email: data.email || '',
+          phone: data.phone || '',
+          track: data.track || '',
+          education: data.education || '',
+          motivation: data.motivation || '',
+        }),
+      })
+
+      const result_text = await response.text()
+      const is_success = result_text.trim() === 'Success'
+
+      if (!is_success) {
+        throw new Error(result_text || 'Unknown error')
+      }
+
+      setIsSubmitted(true)
+      reset()
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (error) {
+      const error_message = error instanceof Error ? error.message : 'Something went wrong'
+      alert(`Error: ${error_message}`)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {

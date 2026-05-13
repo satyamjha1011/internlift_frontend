@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Code, Users, ArrowRight } from 'lucide-react'
 import Card from '../common/Card'
 import Button from '../common/Button'
@@ -44,13 +43,7 @@ const DualValueProp = () => {
     <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 2xl:px-16">
       {/* Responsive container with max-width constraint */}
       <div className="w-full max-w-[90rem] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8 md:mb-12"
-        >
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-white">What We</span>{' '}
             <span className="gradient-text">Offer</span>
@@ -58,17 +51,11 @@ const DualValueProp = () => {
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Two powerful solutions to help you succeed in the tech industry
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {valueProps.map((prop, index) => (
-            <motion.div
-              key={prop.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-            >
+          {valueProps.map((prop) => (
+            <div key={prop.title}>
               <Card glow className="h-full flex flex-col">
                 <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${prop.gradient} flex items-center justify-center mb-6`}>
                   <prop.icon className="w-8 h-8 text-black" />
@@ -93,7 +80,7 @@ const DualValueProp = () => {
                   </Button>
                 </Link>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

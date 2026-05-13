@@ -2,31 +2,43 @@ import { Link } from 'react-router-dom'
 
 const Logo = ({ className = '', showLink = true, size = 'md', useImage = true }) => {
   const sizes = {
-    sm: { globe: 32, text: 'text-lg', tagline: 'text-xs', spacing: 'space-x-2', img: 'h-8' },
-    md: { globe: 48, text: 'text-2xl', tagline: 'text-sm', spacing: 'space-x-3', img: 'h-12' },
-    lg: { globe: 64, text: 'text-3xl', tagline: 'text-base', spacing: 'space-x-4', img: 'h-16' },
-    xl: { globe: 80, text: 'text-4xl', tagline: 'text-lg', spacing: 'space-x-5', img: 'h-20' },
+    sm: { globe: 32, text: 'text-lg', tagline: 'text-xs', spacing: 'space-x-2', img: 'h-8', width: 32, height: 32 },
+    md: { globe: 48, text: 'text-2xl', tagline: 'text-sm', spacing: 'space-x-3', img: 'h-12', width: 48, height: 48 },
+    lg: { globe: 64, text: 'text-3xl', tagline: 'text-base', spacing: 'space-x-4', img: 'h-16', width: 64, height: 64 },
+    xl: { globe: 80, text: 'text-4xl', tagline: 'text-lg', spacing: 'space-x-5', img: 'h-20', width: 80, height: 80 },
   }
 
   const currentSize = sizes[size] || sizes.md
 
-  // Use the actual logo image file - logo appears before text
+  // Use optimized logo formats with PNG fallback
   const logoImagePath = '/logo.png'
+  const logoWebpSrcSet = '/logo-48.webp 48w, /logo-96.webp 96w, /logo-192.webp 192w, /logo-384.webp 384w'
+  const logoAvifSrcSet = '/logo-48.avif 48w, /logo-96.avif 96w, /logo-192.avif 192w, /logo-384.avif 384w'
+  const isCriticalLogo = showLink && size === 'md'
+  const logoSizes = `${currentSize.width}px`
+
+  const OptimizedLogoImage = ({ extraClass = '' }) => (
+    <picture>
+      <source srcSet={logoAvifSrcSet} type="image/avif" sizes={logoSizes} />
+      <source srcSet={logoWebpSrcSet} type="image/webp" sizes={logoSizes} />
+      <img
+        src={logoImagePath}
+        srcSet={logoWebpSrcSet}
+        sizes={logoSizes}
+        alt="Internlift India Technology Logo"
+        loading={isCriticalLogo ? 'eager' : 'lazy'}
+        fetchPriority={isCriticalLogo ? 'high' : 'auto'}
+        decoding="async"
+        width={currentSize.width}
+        height={currentSize.height}
+        className={`${currentSize.img} w-auto object-contain ${extraClass}`}
+      />
+    </picture>
+  )
   
   const GlobeIcon = () => {
     if (useImage) {
-      return (
-        <img 
-          src={logoImagePath} 
-          alt="Internlift India Technology Logo" 
-          className={`${currentSize.img} w-auto object-contain`}
-          onError={(e) => {
-            // Fallback to SVG if image doesn't exist
-            e.target.style.display = 'none'
-            e.target.nextSibling.style.display = 'block'
-          }}
-        />
-      )
+      return <OptimizedLogoImage />
     }
     
     return (
@@ -132,16 +144,7 @@ const Logo = ({ className = '', showLink = true, size = 'md', useImage = true })
       return (
         <div className={`flex items-center ${currentSize.spacing} ${className}`}>
           {/* Logo Image - appears before text */}
-          <img 
-            src={logoImagePath} 
-            alt="Internlift India Technology Logo" 
-            className={`${currentSize.img} w-auto object-contain flex-shrink-0`}
-            onError={(e) => {
-              // Fallback to SVG if image doesn't load
-              console.warn('Logo image not found, falling back to SVG')
-              e.target.style.display = 'none'
-            }}
-          />
+          <OptimizedLogoImage extraClass="flex-shrink-0" />
           {/* Text content */}
           <div className="flex flex-col">
             <span className={`${currentSize.text} font-bold text-white uppercase tracking-tight leading-tight`}>

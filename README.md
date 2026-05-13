@@ -131,6 +131,49 @@ This project is configured for CI/CD with GitHub Actions and can be deployed to:
 - **GitHub Pages error?** → See `GITHUB_PAGES_SETUP.md`
 - **General deployment?** → See `DEPLOYMENT_GUIDE.md`
 
+## ⚡ Performance Optimization (Mobile-first)
+
+The following production-focused optimizations were applied to improve PageSpeed Insights/Lighthouse:
+
+- **Render blocking reduced**
+  - Deferred GTM/GA to idle and AdSense to user interaction in `index.html`
+  - Added lightweight critical inline CSS for initial paint
+  - Converted font loading to non-blocking pattern with preload + `media="print"` swap
+- **Bundle splitting improved**
+  - Route-level lazy loading in `src/App.jsx`
+  - Kept home route eager to avoid route-fallback CLS regressions
+  - Deferred telemetry (`@vercel/analytics`, `@vercel/speed-insights`) until idle
+  - Updated Vite chunk strategy in `vite.config.js`
+- **CLS and image stability**
+  - Added explicit logo dimensions + responsive AVIF/WebP delivery in `src/components/common/Logo.jsx`
+  - Removed above-the-fold Y-axis entry motion in `src/components/home/HeroSection.jsx` to reduce layout shift
+  - Added reduced-motion handling in `src/index.css`
+- **Caching and delivery**
+  - Added long-lived immutable cache headers for assets/images/fonts in `vercel.json`
+  - Kept HTML documents on revalidation cache policy
+  - Added apex-to-www canonical redirect rule for better Search Console consistency
+- **AdSense readiness**
+  - Added `google-adsense-account` meta tag in `index.html`
+  - Added `public/ads.txt`
+  - Added image optimization script: `npm run optimize:images`
+
+### Local Lighthouse Snapshot (mobile emulation)
+
+- **Performance:** 77
+- **Accessibility:** 96
+- **Best Practices:** 96
+- **SEO:** 92
+- **FCP:** 1.9s
+- **LCP:** 2.8s
+- **TBT:** 700ms
+- **CLS:** 0.004
+
+### Next Suggested Improvements
+
+- Convert remaining large raster assets (beyond logo) to AVIF/WebP and apply `picture/srcset`.
+- Keep third-party scripts consent-gated in production if legal/compliance requires explicit opt-in.
+- Re-run PSI on the production domain after deploy and re-submit Search Console validation.
+
 ## 📞 Contact
 
 - **Email**: support@internlift.com

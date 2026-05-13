@@ -233,26 +233,12 @@
   }
 }
 
-/* Mobile breakpoint (480px) */
-@media (min-width: 480px) and (max-width: 767px) {
-  /* Improved spacing for small tablets */
-  .glass-card {
-    padding: 1rem 1.25rem;
-  }
-}
-
-/* Tablet breakpoint (768px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Tablet-specific adjustments */
-  .glass-card {
-    padding: 1.25rem 1.5rem;
-  }
-}
-
-/* Desktop breakpoint (1024px+) */
-@media (min-width: 1024px) {
-  /* Desktop optimizations */
-  .glass-card {
-    padding: 1.5rem;
+/* Respect reduced-motion to reduce main thread workload */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

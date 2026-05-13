@@ -21,10 +21,14 @@ const Footer = () => {
   const footerLinks = {
     company: [
       { path: '/about', label: 'About Us' },
+      { path: '/services', label: 'Services' },
+      { path: '/internships', label: 'Internships' },
+      { path: '/faq', label: 'FAQ' },
       { path: '/case-studies', label: 'Case Studies' },
       { path: '/blog', label: 'Blog' },
       { path: '/contact', label: 'Contact' },
       { path: '/privacy-policy', label: 'Privacy Policy' }, // New link added
+      { path: '/terms-and-conditions', label: 'Terms and Conditions' },
     ],
     services: [
       { path: '/services/backend-development', label: 'Backend Development' },
@@ -35,6 +39,7 @@ const Footer = () => {
     programs: [
       { path: '/internship', label: 'Internship Program' },
       { path: '/verify', label: 'Verify Intern' },
+      { path: '/university-compliance-notice', label: 'Official University Notice' },
     ],
   }
 
@@ -61,7 +66,7 @@ const Footer = () => {
             
             {/* Company Description */}
             <p className="text-gray-100 text-sm sm:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
-              MSME-registered IT services company and internship provider based in Bengaluru.
+              MSME-registered IT services company operating across Tier-1 cities such as Bengaluru, Delhi, Kolkata, and Hyderabad, plus regional markets, with live-project internship handholding for students.
             </p>
             
             {/* Contact Information - Using semantic address element */}

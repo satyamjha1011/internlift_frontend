@@ -5,6 +5,8 @@ import Card from '../common/Card'
 import Button from '../common/Button'
 import LoadingSpinner from '../common/LoadingSpinner'
 
+const GOOGLE_APPS_SCRIPT_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx8SfvKD45Udx0mmFxl2jDMgZqvyIKmoWdeZFEftk879v7WMY4VrvOOy2eOiopDvwVW/exec'
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -12,13 +14,41 @@ const ContactForm = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    reset()
-    
-    setTimeout(() => setIsSubmitted(false), 5000)
+    try {
+      // Use text/plain (not application/json) so the browser does not send a CORS
+      // preflight OPTIONS request. Google Apps Script web apps respond 405 to OPTIONS,
+      // which surfaces as "Failed to fetch" in the UI.
+      const response = await fetch(GOOGLE_APPS_SCRIPT_WEBAPP_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: JSON.stringify({
+          name: data.name || '',
+          email: data.email || '',
+          phone: data.phone || '',
+          subject: data.subject || '',
+          message: data.message || '',
+        }),
+      })
+
+      const result_text = await response.text()
+      const is_success = result_text.trim() === 'Success'
+
+      if (!is_success) {
+        throw new Error(result_text || 'Unknown error')
+      }
+
+      alert('Message sent successfully!')
+      setIsSubmitted(true)
+      reset()
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (error) {
+      const error_message = error instanceof Error ? error.message : 'Something went wrong'
+      alert(`Error: ${error_message}`)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {

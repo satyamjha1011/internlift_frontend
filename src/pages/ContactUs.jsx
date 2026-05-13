@@ -45,7 +45,7 @@ const ContactUs = () => {
             <span className="gradient-text">Us</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Have a question or want to discuss a project? We'd love to hear from you.
+            Have a question on IT services, partner delivery, or internship onboarding? We support clients and students across Tier-1 cities including Bengaluru, Delhi, Kolkata, and Hyderabad.
           </p>
         </motion.div>
 

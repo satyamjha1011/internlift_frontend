@@ -1,26 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJM51KMQTE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LJM51KMQTE');
-    </script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NMTT9DSK');</script>
-  <!-- End Google Tag Manager -->
-  <!--google adsense-->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7680957823986334"
-  crossorigin="anonymous"></script>
-<!--google adssense end-->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -28,9 +8,28 @@
     <meta name="description" content="Internlift India Technology - MSME-registered IT services company and internship provider based in Bengaluru. We offer backend development, frontend development, AI/LLM solutions, IoT solutions, and no-code automation." />
     <meta name="keywords" content="internship, IT services, software development, AI solutions, IoT, Bengaluru, MSME" />
     <meta name="author" content="Internlift India Technology" />
+    <meta name="google-adsense-account" content="ca-pub-7680957823986334" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/logo-96.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="/logo-96.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
+    <style>
+      html, body, #root {
+        margin: 0;
+        min-height: 100%;
+        background: #000;
+        color: #fff;
+      }
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        overflow-x: hidden;
+      }
+    </style>
     <title>Internlift India Technology - IT Services & Internship Programs</title>
   </head>
   <body>
@@ -39,6 +38,61 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-LJM51KMQTE');
+      (function loadDeferredThirdPartyScripts() {
+        let hasLoadedAnalytics = false;
+        let hasLoadedAds = false;
+
+        const appendScript = (config) => {
+          const scriptTag = document.createElement('script');
+          scriptTag.src = config.src;
+          scriptTag.async = !!config.async;
+          if (config.attrs) {
+            Object.entries(config.attrs).forEach(([key, value]) => scriptTag.setAttribute(key, value));
+          }
+          document.head.appendChild(scriptTag);
+        };
+
+        const loadAnalytics = () => {
+          if (hasLoadedAnalytics) return;
+          hasLoadedAnalytics = true;
+          const scriptConfigs = [
+            { src: 'https://www.googletagmanager.com/gtag/js?id=G-LJM51KMQTE', async: true },
+            { src: 'https://www.googletagmanager.com/gtm.js?id=GTM-NMTT9DSK', async: true },
+          ];
+
+          scriptConfigs.forEach(appendScript);
+        };
+
+        const loadAdsense = () => {
+          if (hasLoadedAds) return;
+          hasLoadedAds = true;
+          appendScript({
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7680957823986334',
+            async: true,
+            attrs: { crossorigin: 'anonymous' },
+          });
+
+          window.removeEventListener('pointerdown', loadAdsense);
+          window.removeEventListener('scroll', loadAdsense);
+          window.removeEventListener('keydown', loadAdsense);
+        };
+
+        window.addEventListener('pointerdown', loadAdsense, { once: true, passive: true });
+        window.addEventListener('scroll', loadAdsense, { once: true, passive: true });
+        window.addEventListener('keydown', loadAdsense, { once: true, passive: true });
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 10000 });
+        } else {
+          window.setTimeout(loadAnalytics, 10000);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
